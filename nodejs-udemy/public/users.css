@@ -1,0 +1,31 @@
+.main-section {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    width: 80%;
+}
+
+table,
+th,
+td {
+    border: 1px solid #666;
+    border-collapse: collapse;
+    padding: 0.5rem;
+}
+
+.table-users {
+}
+
+.table-users__headers {
+    background-color: var(--green);
+    color: white;
+}
+
+.table-users__body tr:nth-child(odd) {
+    background-color: #ddd;
+    color: black;
+}
