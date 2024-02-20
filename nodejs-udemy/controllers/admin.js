@@ -1,10 +1,15 @@
-const products = [];
+const Product = require("./../models/product");
+
 const users = [];
 
 module.exports.sendNewProduct = (req, res, next) => {
-    console.log(req.body);
-    products.push({title: req.body.product});
-    res.redirect("/add-product");
+    const productTitle = req.body.product;
+    console.log(productTitle);
+    const product = new Product(productTitle);
+    console.log(product.title);
+    product.save();
+
+    res.redirect("/shop");
 };
 
 module.exports.postAddUser = (req, res, next) => {
@@ -21,5 +26,5 @@ module.exports.postAddUser = (req, res, next) => {
     res.redirect("/users");
 };
 
-module.exports.products = products;
+module.exports.products = Product;
 module.exports.users = users;

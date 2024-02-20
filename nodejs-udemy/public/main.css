@@ -79,7 +79,8 @@ body {
     width: 100vw;
     display: flex;
     justify-content: center;
-    padding: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 .grid {
