@@ -1,9 +1,8 @@
 const express = require("express");
+const errorController = require("./../controllers/error.js");
 
 const errorRoutes = express.Router();
 
-errorRoutes.get("*", (req, res, next) => {
-    res.redirect("/shop");
-});
+errorRoutes.get("*", errorController.errorRedirect);
 
 module.exports = errorRoutes;
