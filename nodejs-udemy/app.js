@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const admin = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 const usersRoutes = require("./routes/users.js");
+const errorRoutes = require("./routes/error.js");
 
 const app = express();
 app.engine("pug", pug.__express);
@@ -19,5 +20,6 @@ app.use(express.static(path.join(rootDir, "public")));
 app.use(admin.routes);
 app.use(usersRoutes);
 app.use(shopRoutes);
+app.use(errorRoutes);
 
 app.listen(3000);
