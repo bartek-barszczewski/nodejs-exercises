@@ -1,0 +1,21 @@
+extends ./../layouts/main-layout.pug
+
+block content
+  main.main
+    if prods.length > 0 
+      .grid
+        each product in prods
+          article.card-product__item
+            div.card-header
+              h3 #{product.title}
+            div.card-image
+              img.card-img(src="https://mockupboard.com/wp-content/uploads/2020/05/Book_Cover_Free_MockUp_mockupboard.com_-1024x682.jpg" alt="product-book")    
+            div.card-description
+              div.card-content
+                h2 $19.99
+                p.card-product_text Very interesting book about so many interesting things
+            div.card-button__buy
+              button(type="submit") Add to cart
+    else
+      main.main
+        h1 No products

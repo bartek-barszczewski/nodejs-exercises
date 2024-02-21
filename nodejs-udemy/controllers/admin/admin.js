@@ -2,9 +2,24 @@ const Product = require("./../../models/product");
 
 const users = [];
 
+module.exports.getEditAdminProducts = (req, res, next) => {
+    res.render("admin/edit-products", {
+        path: "/admin/admin-products",
+        pageTitle: "Edit Admin products",
+    });
+};
+
+module.exports.getAdminProducts = (req, res, next) => {
+    res.render("admin/products", {
+        path: "/admin/admin-products",
+        pageTitle: "Admin products",
+    });
+};
+
 module.exports.getAddProducts = (req, res, next) => {
     res.render("admin/add-product", {
         path: "/admin/add-product",
+        pageTitle: "Add product",
     });
 };
 
@@ -21,6 +36,7 @@ module.exports.getAllUsers = (req, res, next) => {
     res.render("admin/users", {
         users: users,
         path: "/admin/users",
+        pageTitle: "Users",
     });
 };
 
