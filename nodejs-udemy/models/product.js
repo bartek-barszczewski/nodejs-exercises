@@ -12,8 +12,12 @@ module.exports = class Product {
     save() {
         fs.readFile(PATH_DATA, (err, fileContent) => {
             let products = [];
+            
+            if (!fileContent.length) {
+                products = JSON.parse("[]");
+            }
 
-            if (!err) {
+            if (!err && fileContent.length) {
                 products = JSON.parse(fileContent);
             }
 

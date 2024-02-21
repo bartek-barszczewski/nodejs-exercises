@@ -1,11 +1,13 @@
-extends ./layouts/main-layout.pug
+extends ./../layouts/main-layout.pug
+
 block styles
-  link(href='users.css' rel='stylesheet')
-  link(href='add_user_form.css', rel='stylesheet')
+  link(href='../users.css' rel='stylesheet')
+  link(href='../add_user_form.css' rel='stylesheet')
+
 block content
   section.main-section
     .section-add-user__form
-      form(action="/add-user" method="POST")
+      form(action="/admin/add-user" method="POST")
         div
           label(for="username") Type username below: &nbsp;
           input(type="text" name="username" id="username")

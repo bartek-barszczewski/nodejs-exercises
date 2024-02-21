@@ -1,5 +1,5 @@
 const express = require("express");
-const errorController = require("./../controllers/error.js");
+const errorController = require("./../../controllers/error/error.js");
 
 const errorRoutes = express.Router();
 

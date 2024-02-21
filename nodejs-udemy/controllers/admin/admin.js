@@ -1,15 +1,27 @@
-const Product = require("./../models/product");
+const Product = require("./../../models/product");
 
 const users = [];
 
+module.exports.getAddProducts = (req, res, next) => {
+    res.render("admin/add-product", {
+        path: "/admin/add-product",
+    });
+};
+
 module.exports.sendNewProduct = (req, res, next) => {
     const productTitle = req.body.product;
-    console.log(productTitle);
+
     const product = new Product(productTitle);
-    console.log(product.title);
     product.save();
 
     res.redirect("/shop");
+};
+
+module.exports.getAllUsers = (req, res, next) => {
+    res.render("admin/users", {
+        users: users,
+        path: "/admin/users",
+    });
 };
 
 module.exports.postAddUser = (req, res, next) => {
@@ -23,7 +35,7 @@ module.exports.postAddUser = (req, res, next) => {
         lastActivity: lastActivity,
     });
 
-    res.redirect("/users");
+    res.redirect("/admin/users");
 };
 
 module.exports.products = Product;
