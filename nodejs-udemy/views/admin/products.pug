@@ -14,11 +14,14 @@ block content
               div.card-content
                 h2 $#{product.price}
                 p.card-product_text #{product.description}
-            div.card-button__buy
-              a(href="/admin/edit-products") Edit
-              form(method="POST" action="/admin/delete-products")
-                button(type="submit") Delete
+                div.card-button__buy
+                  a(href="/admin/edit-products") Edit
+                  form(method="POST" action="/admin/delete-products")
+                    button(type="submit") Delete
 
     else
       main.main
         h1 No products
+
+block end
+  include ../includes/end.pug

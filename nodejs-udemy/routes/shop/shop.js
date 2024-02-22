@@ -5,6 +5,7 @@ const shopRoutes = express.Router();
 
 shopRoutes.get("/", shopController.getIndex);
 shopRoutes.get("/products", shopController.getAllShopProducts);
+shopRoutes.get("/orders", shopController.getOrders);
 shopRoutes.get("/cart", shopController.getCart);
 shopRoutes.get("/checkout", shopController.getCheckout);
 

@@ -1,42 +1,46 @@
 extends ./../layouts/main-layout.pug
 
 block styles
-  link(href='../users.css' rel='stylesheet')
-  link(href='../add_user_form.css' rel='stylesheet')
+  link(href='../css/users.css' rel='stylesheet')
+  link(href='../css/add_user_form.css' rel='stylesheet')
 
 block content
-  section.main-section
-    .section-add-user__form
-      form(action="/admin/add-user" method="POST")
-        div
-          label(for="username") Type username below: &nbsp;
-          input(type="text" name="username" id="username")
-          br
-          br
-          label(for="role") Choose role below: &nbsp;
-          select(type="text" name="role" id="username")
-            option(value="Moderator") Moderator
-            option(value="Admin") Admin
-            option(value="User") User
-          br
-          br
-          button(type="submit") Add user
-    h1 Users:
-    table.table-users
-      thead
-      tr.table-users__headers
-        th Username
-        th Role
-        th Last activity
-        th Disable account
-        th Edit role
-      tbody.table-users__body
-        each user in users
-          tr(id=`user_${user.id}`)
-            td #{user.username}
-            td #{user.role}
-            td #{user.lastActivity}
-            td
-              button(id=`user_disable_${user.id}`) Disable
-            td
-              button(id=`user_edit_role_${user.id}`) Edit role
+  main.main
+    section.main-section
+      .section-add-user__form
+        form(action="/admin/add-user" method="POST")
+          div
+            label(for="username") Type username below: &nbsp;
+            input(type="text" name="username" id="username")
+            br
+            br
+            label(for="role") Choose role below: &nbsp;
+            select(type="text" name="role" id="username")
+              option(value="Moderator") Moderator
+              option(value="Admin") Admin
+              option(value="User") User
+            br
+            br
+            button(type="submit") Add user
+      h1 Users:
+      table.table-users
+        thead
+        tr.table-users__headers
+          th Username
+          th Role
+          th Last activity
+          th Disable account
+          th Edit role
+        tbody.table-users__body
+          each user in users
+            tr(id=`user_${user.id}`)
+              td #{user.username}
+              td #{user.role}
+              td #{user.lastActivity}
+              td
+                button(id=`user_disable_${user.id}`) Disable
+              td
+                button(id=`user_edit_role_${user.id}`) Edit role
+
+block end
+  include ../includes/end.pug

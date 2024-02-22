@@ -20,9 +20,16 @@ module.exports.getAllShopProducts = (req, res, next) => {
             pageTitle: "Product list",
             prods: products,
             hasProducts: products > 0,
-            path: "/index",
+            path: "/products",
             docTitle: "SHOP - App",
         });
+    });
+};
+
+module.exports.getOrders = (req, res, next) => {
+    res.render("shop/orders", {
+        pageTitle: "Orders",
+        path: "/orders",
     });
 };
 

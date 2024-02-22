@@ -3,25 +3,29 @@ block styles
   link(href="../add_products_form.css" rel="stylesheet")
 
 block content
-  section.section-add-product__form
-    aside.main-aside__form
-      form(action='/admin/send-new-product' method='POST')
-        div
-          label(for='add-title')  Add product 
-          br
-          input(type='text' id='add-title' name='product' required)
-        div
-          label(for='add-image-url')  Image URL 
-          br
-          input(type='text' id='add-image-url' name='imageURL' required)
-        div
-          label(for='price')  Price
-          br
-          input(type='number' id="price" name='price' required)
+  main.main
+    section.section-add-product__form
+      aside.main-aside__form
+        form(action='/admin/send-new-product' method='POST')
+          div
+            label(for='add-title')  Add product 
+            br
+            input(type='text' id='add-title' name='product' required)
+          div
+            label(for='add-image-url')  Image URL 
+            br
+            input(type='text' id='add-image-url' name='imageURL' required)
+          div
+            label(for='price')  Price
+            br
+            input(type='number' id="price" name='price' required)
 
-        div
-          label(for='description')  Description
-          br
-          textarea(type='text' id='description' name='description' required)
+          div
+            label(for='description')  Description
+            br
+            textarea(type='text' id='description' name='description' required)
 
-        button(type='submit') ADD
+          button(type='submit') ADD
+
+block end
+  include ../includes/end.pug

@@ -14,8 +14,13 @@ block content
               div.card-content
                 h2 $#{product.price}
                 p.card-product_text #{product.description}
-            div.card-button__buy
-              button(type="submit") Add to cart
+              div.card-button__buy
+                form( method="POST" action="/add-to-cart" )
+                  button(type="submit") Add to cart
+
     else
       main.main
         h1 No products
+
+block end
+  include ../includes/end.pug
