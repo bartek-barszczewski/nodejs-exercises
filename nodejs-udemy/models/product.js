@@ -28,7 +28,7 @@ module.exports = class Product {
 
             fs.writeFile(PATH_DATA, JSON.stringify(products), (err) => {
                 if (err) {
-                    throw new err();
+                    throw new Error(`Error write data to ${PATH_DATA}`);
                 }
                 console.log("Saved! ", this);
             });

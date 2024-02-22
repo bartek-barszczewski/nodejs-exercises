@@ -1,6 +1,5 @@
 const Product = require("./../../models/product");
-
-const users = [];
+const User = require("./../../models/user");
 
 module.exports.getEditAdminProducts = (req, res, next) => {
     res.render("admin/edit-products", {
@@ -42,26 +41,26 @@ module.exports.sendNewProduct = (req, res, next) => {
 };
 
 module.exports.getAllUsers = (req, res, next) => {
-    res.render("admin/users", {
-        users: users,
-        path: "/admin/users",
-        pageTitle: "Users",
+    const user = new User();
+
+    user.fetchAll((users) => {
+        res.render("admin/users", {
+            users: users,
+            path: "/admin/users",
+            pageTitle: "Users",
+        });
     });
 };
 
 module.exports.postAddUser = (req, res, next) => {
-    const date = new Date();
-    const lastActivity = `${date.getFullYear()}.${date.getMonth()}.${date.getDay()}`;
+    console.log(req.body);
+    const username = req.body.username;
+    const role = req.body.role;
 
-    users.push({
-        id: users.length + 1,
-        username: req.body.username,
-        role: req.body.role,
-        lastActivity: lastActivity,
-    });
+    const newUser = new User(username, role);
+    newUser.addUser();
 
     res.redirect("/admin/users");
 };
 
 module.exports.products = Product;
-module.exports.users = users;
