@@ -4,29 +4,38 @@ const users = [];
 
 module.exports.getEditAdminProducts = (req, res, next) => {
     res.render("admin/edit-products", {
-        path: "/admin/admin-products",
+        path: "/admin/edit-products",
         pageTitle: "Edit Admin products",
     });
 };
 
 module.exports.getAdminProducts = (req, res, next) => {
-    res.render("admin/products", {
-        path: "/admin/admin-products",
-        pageTitle: "Admin products",
+    const products = new Product();
+
+    products.fetchAll((products) => {
+        res.render("admin/products", {
+            path: "/admin/products",
+            prods: products,
+            hasProducts: products > 0,
+            pageTitle: "Admin products",
+        });
     });
 };
 
 module.exports.getAddProducts = (req, res, next) => {
-    res.render("admin/add-product", {
-        path: "/admin/add-product",
-        pageTitle: "Add product",
+    res.render("admin/add-products", {
+        path: "/admin/add-products",
+        pageTitle: "Add products",
     });
 };
 
 module.exports.sendNewProduct = (req, res, next) => {
     const productTitle = req.body.product;
+    const productImage = req.body.imageURL;
+    const productPrice = req.body.price;
+    const productDescription = req.body.description;
 
-    const product = new Product(productTitle);
+    const product = new Product(productTitle, productImage, productPrice, productDescription);
     product.save();
 
     res.redirect("/shop");

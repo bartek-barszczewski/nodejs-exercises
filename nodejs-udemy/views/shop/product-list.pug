@@ -9,11 +9,11 @@ block content
             div.card-header
               h3 #{product.title}
             div.card-image
-              img.card-img(src="https://mockupboard.com/wp-content/uploads/2020/05/Book_Cover_Free_MockUp_mockupboard.com_-1024x682.jpg" alt="product-book")    
+              img.card-img(src=product.image alt=product.title)    
             div.card-description
               div.card-content
-                h2 $19.99
-                p.card-product_text Very interesting book about so many interesting things
+                h2 $#{product.price}
+                p.card-product_text #{product.description}
             div.card-button__buy
               button(type="submit") Add to cart
     else

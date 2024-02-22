@@ -118,17 +118,25 @@ body {
 }
 
 .card-button__buy {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     margin: 0;
     text-align: center;
     padding: 0.5rem;
 }
 
-.card-button__buy button {
-    border: 3px solid var(--green);
-    color: var(--green);
-    background-color: white;
-    width: 50%;
+.card-button__buy button,
+.card-button__buy a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: var(--green);
+    width: 10rem;
     font-size: 1.5rem;
+    padding: 0.5rem;
 }
 
 .active {
