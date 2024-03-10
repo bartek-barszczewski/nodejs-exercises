@@ -1,0 +1,18 @@
+============================================
+********   Get Weather Info OK!     ********
+============================================
+some of Info1:
+    city    : Warsaw
+    cityid  : 101250201
+    temp    : 14
+
+some of Info2:
+    city    : Warsaw
+    cityid  : 101250201
+    weather : sun
+
+some of Info3:
+    city    : 
+    cityid  : 
+    weather : 
+============================================
